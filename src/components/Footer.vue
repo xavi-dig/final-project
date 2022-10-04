@@ -1,9 +1,14 @@
 <template>
-  <div class="footer">
+  <div
+    class="flex justify-center flex-col flex-nowrap content-center items-center"
+  >
     <a href="/"
-      ><img src="../assets/logo.svg" alt="TaskApp" class="mr-3 h-6 sm:h-9"
+      ><img
+        src="https://res.cloudinary.com/dnsnkrcru/image/upload/v1648481844/taskApp/imgs/logo-small_bh8xj2.svg"
+        alt="TaskApp"
+        class="mr-3 h-6 sm:h-9"
     /></a>
-    <p class="py-10 md:pb-20 text-lg md:text-xl text-center">
+    <p class="py-10 md:pb-20 text-center text-sm sm:text-lg">
       © 2022 TaskApp. All rights reserved. Hecho con 😭 por Xavi Romero
     </p>
   </div>
@@ -11,13 +16,4 @@
 
 <script setup></script>
 
-<style scoped>
-.footer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-}
-</style>
+<style scoped></style>
