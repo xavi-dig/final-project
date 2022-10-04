@@ -1,8 +1,12 @@
 <template>
   <div>hello</div>
+  <Footer />
 </template>
 
-<script setup></script>
+<script setup>
+import Footer from "../components/Footer.vue";
+import { ref } from "vue";
+</script>
 
 <style></style>
 
