@@ -16,6 +16,29 @@
     <button @click="edit">Apply</button>
     <h1 v-if="errorContainer">{{ errorMessage }}</h1>
   </div>
+
+  <div class="w-full p-8 flex justify-center">
+    <div class="rounded w-full p-2 bg-yellow-100;">
+      <div class="flex justify-between py-1">
+        <h3 class="text-m">{{ taskData.title }}</h3>
+      </div>
+      <div class="flex justify-between py-1">
+        {{ taskData.description }}
+      </div>
+
+      <div class="task-editdelete">
+        <button @click="toggleEdit">Edit</button>
+        <button @click="deleteTask">Delete</button>
+        <button @click="completeItem">Completed</button>
+      </div>
+      <div v-if="editInput">
+        <input type="text" v-model="editTitle" />
+        <input type="text" v-model="editDescription" />
+        <button @click="edit">Apply</button>
+        <h1 v-if="errorContainer">{{ errorMessage }}</h1>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>

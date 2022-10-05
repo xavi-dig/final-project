@@ -43,6 +43,7 @@
           <li class="flex justify-center pt-4 md:pt-0">
             <button
               type="submit"
+              @click="signOut"
               class="ml-8 py-2 px-4 text-sm text-green-50 bg-green-800 hover:bg-green-700 font-medium focus:ring-2 focus:ring-green-800 focus:ring-opacity-50 rounded-md"
             >
               Log Out
@@ -52,10 +53,18 @@
       </div>
     </div>
   </nav>
-  <div>Nav Component</div>
 </template>
 
 <script setup>
+import router from "../router";
+import { useUserStore } from "../stores/user";
+
+const userStore = useUserStore();
+
+async function signOut() {
+  await userStore.signOut();
+  router.push({ path: "/auth/login" });
+}
 //constant to save a variable that will hold the use router method
 
 // constant to save a variable that will get the user from store with a computed function imported from vue

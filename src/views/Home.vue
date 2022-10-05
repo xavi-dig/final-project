@@ -1,7 +1,6 @@
 <template>
   <Nav />
-  <div>hello</div>
-  <NewTask />
+  <NewTask @childNewTask="sendToStore" />
   <TaskItem
     v-for="(task, index) in tasks"
     :key="index"
@@ -9,6 +8,7 @@
     @childDelete="deleteTask"
     @childUpdate="updateTask"
     @childEdit="editFather"
+    @completeItem="changeComplete"
   />
   <Footer />
 </template>
@@ -49,7 +49,8 @@ async function updateTask(task) {
 async function changeComplete(task) {
   let booleanChange = !task.is_complete;
   let taskId = task.id;
-  await taskStore.completeTask();
+  await taskStore.completeTask(taskId, booleanChange);
+  getTasksFromSupabase();
 }
 
 async function editFather(task) {
