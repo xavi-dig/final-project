@@ -8,6 +8,7 @@
     v-bind:taskData="task"
     @childDelete="deleteTask"
     @childUpdate="updateTask"
+    @childEdit="editFather"
   />
   <Footer />
 </template>
@@ -42,6 +43,20 @@ async function deleteTask(task) {
 //Creamos una función async para actualizar la tarea
 async function updateTask(task) {
   await taskStore.updateTask(task.title, task.description, task.id);
+  getTasksFromSupabase();
+}
+
+async function changeComplete(task) {
+  let booleanChange = !task.is_complete;
+  let taskId = task.id;
+  await taskStore.completeTask();
+}
+
+async function editFather(task) {
+  let newTitle = task.title;
+  let newDescription = task.description;
+  let id = task.id;
+  await taskStore.editTask(newTitle, newDescription, id);
   getTasksFromSupabase();
 }
 </script>

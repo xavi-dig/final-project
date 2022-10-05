@@ -6,14 +6,64 @@
       <li>{{ taskData.description }}</li>
     </ul>
   </div>
+  <button @click="toogleEdit">Edit</button>
   <button @click="childUpdate">Update</button>
   <button @click="childDelete">Delete</button>
+  <button @click="completeItem">completed</button>
+  <div v-if="editInput">
+    <input type="text" v-model="editTitle" />
+    <input type="text" v-model="editDescription" />
+    <button @click="edit">Apply</button>
+    <h1 v-if="errorContainer">{{ errorMessage }}</h1>
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-const emit = defineEmits(["childDelete", "childUpdate"]);
+//Creamos una variable booleana para monstrar u ocultar edit
+let editInput = ref(false);
+
+// Creamos otra variabale vacia para editar el input
+let editTitle = ref("");
+let editDescription = ref("");
+//función que toogles la visibilidad del input
+function toggleEdit() {
+  editInput.value = !editInput.value;
+  editTitle.value = props.taskData.title;
+  editDescription.value = props.taskData.description;
+}
+
+//Creamos función
+let errorMessage = ref("");
+let errorContainer = ref(false);
+
+function errorhandling() {
+  //Tengo que probar si cambiando el orden funciona igual
+  errorContainer.value = !errorContainer.value;
+  errorMessage.value = "No puede estar vacio";
+}
+
+function edit() {
+  if (editTitle.value === "") {
+    errorhandling();
+  } else {
+    editInput.value = !editInput.value;
+    errorContainer.value = !errorContainer.value;
+    let oldToNew = {
+      id: props.taskData.id,
+      title: editTitle.value,
+      description: editDescription.value,
+    };
+    emit("childEdit", oldToNew);
+  }
+}
+
+function completeItem() {
+  emit("completeItem", props.taskData);
+}
+
+const emit = defineEmits(["childDelete", "childUpdate", "childEdit"]);
 
 const props = defineProps(["taskData"]);
 
