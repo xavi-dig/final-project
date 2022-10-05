@@ -12,7 +12,7 @@
       <button
         data-collapse-toggle="mobile-menu"
         type="button"
-        class="inline-flex items-center p-2 ml-3 text-sm text-green-800 rounded-lg md:hidden hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-800"
+        class="inline-flex items-center p-2 ml-3 text-sm text-blue-800 rounded-lg md:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-800"
         aria-controls="mobile-menu"
         aria-expanded="false"
       >
@@ -44,7 +44,7 @@
             <button
               type="submit"
               @click="signOut"
-              class="ml-8 py-2 px-4 text-sm text-green-50 bg-green-800 hover:bg-green-700 font-medium focus:ring-2 focus:ring-green-800 focus:ring-opacity-50 rounded-md"
+              class="ml-8 py-2 px-4 text-sm text-blue-50 bg-blue-800 hover:bg-blue-700 font-medium focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 rounded-md"
             >
               Log Out
             </button>

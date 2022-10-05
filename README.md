@@ -12,6 +12,18 @@
 
 ## Día 2 - Martes
 
+### Objetivos
+
+- Terminar menú hamburguesa y seguir estudiando el proyecto buscando las partes más fáciles para completarlas y dejarlas hechas.
+
+### Copmletados
+
+- Completo Logout
+- Completo Crear Tareas
+- Completo Modulo Home Crear Primera Tarea
+- Completo lógica de tarjetas de Tareas
+- Comienzo a dar estilos a tareas de Home
+
 # final-boiler-plate
 
 This template should help get you started developing the final project running on Vue 3 with the composition API, Pinia as a state management tool, vue router, vite and lastly Supabase running on the backend.
