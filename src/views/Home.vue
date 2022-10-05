@@ -1,11 +1,49 @@
 <template>
   <Nav />
   <div>hello</div>
+  <NewTask />
+  <TaskItem
+    v-for="(task, index) in tasks"
+    :key="index"
+    v-bind:taskData="task"
+    @childDelete="deleteTask"
+    @childUpdate="updateTask"
+  />
+  <Footer />
 </template>
 
 <script setup>
-import Nav from "../components/Nav.vue";
 import { ref } from "vue";
+import Nav from "../components/Nav.vue";
+import Footer from "../components/Footer.vue";
+import NewTask from "../components/NewTask.vue";
+import TaskItem from "../components/TaskItem.vue";
+// importamos la función de las tareas en SupaBase desde la store
+import { useTaskStore } from "../stores/task";
+//Declaramos una variable en formato Array para guardar tareas
+let tasks = ref([]);
+
+//Definimos la tienda de tareas dentro de una variablepara poder utilizarla en este archivo de forma más limpia
+let taskStore = useTaskStore();
+
+//Creamos una función para conseguir las tareas de SupaBase
+async function getTasksFromSupabase() {
+  //Aquíes dónde nos traemos la tienda
+  tasks.value = await taskStore.fetchTasks();
+}
+getTasksFromSupabase();
+
+//Creamos una función async para borrar la tarea
+async function deleteTask(task) {
+  await taskStore.deleteTask(task.id);
+  getTasksFromSupabase();
+}
+
+//Creamos una función async para actualizar la tarea
+async function updateTask(task) {
+  await taskStore.updateTask(task.title, task.description, task.id);
+  getTasksFromSupabase();
+}
 </script>
 
 <style></style>

@@ -1,13 +1,35 @@
 <template>
   <div>Task Item Component</div>
+  <div>
+    <ul>
+      <li>{{ taskData.title }}</li>
+      <li>{{ taskData.description }}</li>
+    </ul>
+  </div>
+  <button @click="childUpdate">Update</button>
+  <button @click="childDelete">Delete</button>
 </template>
 
 <script setup>
-// const emit = defineEmits([
-//   ENTER-EMITS-HERE
-// ])
+import { ref } from "vue";
 
-// const props = defineProps(["ENTER-PROP-HERE"]);
+const emit = defineEmits(["childDelete", "childUpdate"]);
+
+const props = defineProps(["taskData"]);
+
+//Creamos una función para pasarle nuestro evento particular (custom) al padre para poder habilitar la eliminación (delete) de una tarea en particular. Esto se hace mediante un Emit.
+
+function childUpdate() {
+  emit("childUpdate", props.taskData);
+}
+// Reference for future
+// function childDelete() {
+//   emit("le pasaremos el nombre del emit que queremos usar" , los valores del prop, o basicamente lo que queremos enviar )
+// }
+
+function childDelete() {
+  emit("childDelete", props.taskData);
+}
 </script>
 
 <style></style>
