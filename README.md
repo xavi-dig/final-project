@@ -48,3 +48,4 @@
 ### Completados
 
 - Completada página SignUp V1.0
+- Completado mostrar usuario limpiando @cliente
