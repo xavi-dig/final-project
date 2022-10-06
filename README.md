@@ -37,3 +37,14 @@
 - Completo TakItem estilos primera versión
 
 ## Día 4 - Viernes
+
+### Objetivos
+
+- Terminar menú hamburguesa
+- Completar SignUp V1.0
+- Añadir funcionalidades a TaskItem
+- mejorar estilos generales - V1.2
+
+### Completados
+
+- Completada página SignUp V1.0
