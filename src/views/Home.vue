@@ -1,15 +1,17 @@
 <template>
   <Nav />
-  <NewTask @childNewTask="sendToStore" />
-  <TaskItem
-    v-for="(task, index) in tasks"
-    :key="index"
-    v-bind:taskData="task"
-    @childDelete="deleteTask"
-    @childUpdate="updateTask"
-    @childEdit="editFather"
-    @completeItem="changeComplete"
-  />
+  <NewTask @childNewTask="createNewTask" />
+  <div class="flex flex-wrap -mx-4 mt-24">
+    <TaskItem
+      v-for="(task, index) in tasks"
+      :key="index"
+      v-bind:taskData="task"
+      @childDelete="deleteTask"
+      @childUpdate="updateTask"
+      @childEdit="editFather"
+      @completeItem="changeComplete"
+    />
+  </div>
   <Footer />
 </template>
 
@@ -33,6 +35,12 @@ async function getTasksFromSupabase() {
   tasks.value = await taskStore.fetchTasks();
 }
 getTasksFromSupabase();
+
+//Creamos función para crear nuevas tareas
+async function createNewTask(title, description) {
+  await taskStore.addTask(title, description);
+  getTasksFromSupabase();
+}
 
 //Creamos una función async para borrar la tarea
 async function deleteTask(task) {

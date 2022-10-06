@@ -1,41 +1,133 @@
 <template>
-  <div>Task Item Component</div>
-  <div>
-    <ul>
-      <li>{{ taskData.title }}</li>
-      <li>{{ taskData.description }}</li>
-    </ul>
-  </div>
-  <button @click="toogleEdit">Edit</button>
-  <button @click="childUpdate">Update</button>
-  <button @click="childDelete">Delete</button>
-  <button @click="completeItem">completed</button>
-  <div v-if="editInput">
-    <input type="text" v-model="editTitle" />
-    <input type="text" v-model="editDescription" />
-    <button @click="edit">Apply</button>
-    <h1 v-if="errorContainer">{{ errorMessage }}</h1>
-  </div>
+  <div
+    class="w-full md:w-1/2 lg:w-1/3 px-4 mb-16 animate__animated animate__fadeInUp"
+  >
+    <div class="group h-full">
+      <div
+        class="group relative h-full px-8 pt-16 pb-8 bg-blue-200 rounded-md shadow-md hover:shadow-xl transition duration-200"
+      >
+        <div
+          class="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex h-16 w-16 items-center justify-center bg-white rounded-full transition duration-200"
+        >
+          <div
+            class="inline-flex items-center justify-center w-12 h-12 text-white bg-green-500 rounded-full p-3"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+              ></path>
+            </svg>
+          </div>
+        </div>
 
-  <div class="w-full p-8 flex justify-center">
-    <div class="rounded w-full p-2 bg-yellow-100;">
-      <div class="flex justify-between py-1">
-        <h3 class="text-m">{{ taskData.title }}</h3>
-      </div>
-      <div class="flex justify-between py-1">
-        {{ taskData.description }}
-      </div>
+        <input
+          v-if="editInput"
+          :placeholder="errorMessage"
+          type="text"
+          class="inputField mb-4"
+          v-model="editTitle"
+        />
+        <h3
+          v-else
+          class="mb-4 text-xl leading-7 text-coolGray-900 font-bold max-w-xs"
+        >
+          {{ taskData.title }}
+        </h3>
+        <p v-if="editInput">
+          <input
+            type="text"
+            class="inputField mb-4"
+            v-model="editDescription"
+          />
+          <button
+            @click="edit"
+            class="w-full py-2 px-4 text-sm leading-5 text-blue-50 bg-blue-800 hover:bg-blue-700 font-medium focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 rounded-md"
+            type="submit"
+          >
+            Apply
+          </button>
+        </p>
 
-      <div class="task-editdelete">
-        <button @click="toggleEdit">Edit</button>
-        <button @click="deleteTask">Delete</button>
-        <button @click="completeItem">Completed</button>
-      </div>
-      <div v-if="editInput">
-        <input type="text" v-model="editTitle" />
-        <input type="text" v-model="editDescription" />
-        <button @click="edit">Apply</button>
-        <h1 v-if="errorContainer">{{ errorMessage }}</h1>
+        <p
+          v-else
+          class="text-coolGray-500 group-hover:text-coolGray-600 font-medium transition duration-200"
+        >
+          {{ taskData.description }}
+        </p>
+        <div class="flex justify-between pt-4">
+          <button
+            title="Marcar Tarea como Completada"
+            @click="completeItem"
+            class="text-white p-2 rounded bg-green-600 hover:bg-green-500"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+          </button>
+          <button
+            title="Editar Tarea"
+            @click="toggleEdit"
+            class="text-white p-2 rounded bg-yellow-400 hover:bg-yellow-500"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+              ></path>
+            </svg>
+          </button>
+          <button
+            title="Eliminar Tarea"
+            @click="childDelete"
+            class="text-white p-2 rounded bg-rose-500 hover:bg-rose-400"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>

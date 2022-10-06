@@ -1,50 +1,53 @@
 <template>
-  <div>Sign In</div>
-  <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Time to build up the Final Project!</p>
-  <p class="wu-text">Wu Tang Forever</p>
-  <p v-if="errorMsg" class="">
-    {{ errorMsg }}
-  </p>
-  <form @submit.prevent="signIn">
-    <div class="">
-      <label class="" for="">Email</label>
-      <input
-        class=""
-        type="email"
-        placeholder="dave@wuTangfinancial.com"
-        v-model="email"
-        id="email"
-      />
-    </div>
-    <div class="mb-4">
-      <label class="" for="">Password</label>
-
-      <div class="">
-        <input
-          class=""
-          :type="passwordFieldType"
-          onpaste="return false"
-          placeholder="************"
-          v-model="password"
-          id="password"
-        />
-        <span class="">
-          <EyeIcon
-            :class="[passwordFieldIcon]"
-            @click.prevent="hidePassword = !hidePassword"
-          />
-        </span>
-      </div>
-    </div>
-
-    <button class="" type="submit">Sign In</button>
-    <p class="">
-      <span class="">Don’t have an account? </span>
-
-      <PersonalRouter :route="route" :buttonText="buttonText" />
+  <div class="bg-blue-50 rounded px-12 py-6 shadow-md">
+    <p>Inicia sesión en TaskApp</p>
+    <p v-if="errorMsg" class="">
+      {{ errorMsg }}
     </p>
-  </form>
+    <form @submit.prevent="signIn">
+      <div class="">
+        <!-- <label class="" for="">Email</label> -->
+        <input
+          class="inputField mb-4"
+          type="email"
+          placeholder="Introduce tu correo electrónico"
+          v-model="email"
+          id="email"
+        />
+      </div>
+      <div class="mb-4">
+        <!-- <label class="" for="">Password</label> -->
+
+        <div class="">
+          <input
+            class="inputField mb-4"
+            :type="passwordFieldType"
+            onpaste="return false"
+            placeholder="Introduce tu contraseña"
+            v-model="password"
+            id="password"
+          />
+          <span class="">
+            <EyeIcon
+              :class="[passwordFieldIcon]"
+              @click.prevent="hidePassword = !hidePassword"
+            />
+          </span>
+        </div>
+      </div>
+
+      <button
+        class="w-full py-2 px-4 text-sm leading-5 text-blue-50 bg-blue-800 hover:bg-blue-700 font-medium focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 rounded-md"
+        type="submit"
+      >
+        Sign In
+      </button>
+      <p class="">
+        <span class="">Don’t have an account? </span>
+        <PersonalRouter :route="route" :buttonText="buttonText" />
+      </p>
+    </form>
+  </div>
 </template>
 
 <script setup>

@@ -17,7 +17,7 @@ export const useTaskStore = defineStore("tasks", {
     },
     // New code
     async addTask(title, description) {
-      console.log(useUserStore().user.id);
+      //console.log(useUserStore().user.id);
       const { data, error } = await supabase.from("tasks").insert([
         {
           user_id: useUserStore().user.id,
@@ -26,14 +26,6 @@ export const useTaskStore = defineStore("tasks", {
           description: description,
         },
       ]);
-    },
-
-    //New Code 2
-    async completeTask(taskID) {
-      const { data, error } = await supabase
-        .from("tasks")
-        .update({ is_complete: true })
-        .eq("id", taskID);
     },
 
     // Función para borrar tarea de SupaBase
@@ -69,7 +61,7 @@ export const useTaskStore = defineStore("tasks", {
     async completeTask(id) {
       const { data, error } = await supabase
         .from("tasks")
-        .update({ is_complete: completeStatus })
+        .update({ is_complete: true })
         .match({ id: id });
     },
     // async deleteAllTasks() {

@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-4 bg-blue-200">
+  <section class="pt-4">
     <div class="container px-4 mx-auto">
       <div
         class="max-w-4xl mx-auto text-center animate__animated animate__fadeIn"
@@ -27,13 +27,16 @@
               type="text"
               name="newTodo"
               id="name"
+              v-model="taskTitle"
             />
+            <!-- v-model, almacena el input en una variable pre-definida (vacía, sino lo está, lo sobre-escribe) -->
             <input
               class="inputField mb-4"
               placeholder="Añade una Descripción de tu Tarea - Comprar el libro 'La República' de Platón y buscar Cap.VII"
               type="text"
               name="newDescription"
               id="description"
+              v-model="taskDesc"
             />
             <button
               @click.prevent="onInput"
@@ -67,7 +70,7 @@ function onInput() {
     emptyString.value = "Title is required.";
     setTimeout(() => {
       errorBool.value = false;
-    }, 1000);
+    }, 2000);
   } else {
     emit("childNewTask", taskTitle.value, taskDesc.value);
     taskTitle.value = "";
