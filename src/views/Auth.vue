@@ -1,5 +1,7 @@
 <template>
-  <div class="flex flex-col flex-wrap items-center -mx-4 mt-24">
+  <div
+    class="flex flex-col flex-wrap items-center -mx-4 mt-24 md:bg-[url('../assets/2152177.png')] bg-no-repeat bg-auth pb-40 sm:bg-none"
+  >
     <a href="/" class="flex items-center mb-12"
       ><img
         class="mr-3 h-6 sm:h-9"
@@ -12,7 +14,12 @@
 
 <script setup></script>
 
-<style></style>
+<style>
+.bg-auth {
+  background-size: 35%;
+  background-position: 0% 120%;
+}
+</style>
 
 <!-- 
 **noHints**

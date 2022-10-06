@@ -1,45 +1,53 @@
 <template>
-  <div>Sign Up</div>
-  <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Good Music, Patience and a lot effort</p>
-  <p>Keep calm and code on!</p>
-
-  <form @submit.prevent="signUp">
-    <div class="">
-      <label class="" for="">Email</label>
-      <input
-        class=""
-        type="email"
-        placeholder="dave@wuTangfinancial.com"
-        v-model="email"
-        id="email"
-      />
-    </div>
-    <div class="">
-      <label class="" for="">Password</label>
-      <input
-        class=""
-        type="password"
-        placeholder="************"
-        v-model="password"
-        id="password"
-      />
-    </div>
-    <div class="">
-      <label class="" for="">Confirm Password</label>
-      <input
-        class=""
-        type="password"
-        placeholder="************"
-        v-model="confirmPassword"
-        id="confirmPassword"
-      />
-    </div>
-    <button class="" type="submit">Sign Up</button>
-    <p class="">
-      <span class="">Have an account? </span>
+  <div class="bg-blue-50 rounded px-12 py-6 shadow-md">
+    <p class="my-4 font-bold text-center">Crea tu cuenta en TaskApp</p>
+    <p v-if="errorMsg" class="">
+      {{ errorMsg }}
     </p>
-  </form>
+
+    <form @submit.prevent="signUp">
+      <div class="">
+        <!-- <label class="" for="">Email</label> -->
+        <input
+          class="inputField mb-4"
+          type="email"
+          placeholder="Introduce tu correo electrónico"
+          v-model="email"
+          id="email"
+        />
+      </div>
+      <div class="mb-4">
+        <!-- <label class="" for="">Password</label> -->
+        <input
+          class="inputField mb-4"
+          type="password"
+          placeholder="Introduce tu contraseña"
+          v-model="password"
+          id="password"
+        />
+      </div>
+      <div class="mb-4">
+        <!-- <label class="" for="">Confirm Password</label> -->
+        <input
+          class="inputField mb-4"
+          type="password"
+          placeholder="Confirma tu contraseña"
+          v-model="confirmPassword"
+          id="confirmPassword"
+        />
+      </div>
+      <button
+        class="w-full py-2 px-4 text-sm leading-5 text-blue-50 bg-blue-800 hover:bg-blue-700 font-medium focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 rounded-md"
+        type="submit"
+      >
+        Registrate
+      </button>
+      <p class="my-4 font-medium text-center">
+        <span class="">¿Tienes una cuenta? </span>
+        <PersonalRouter :route="route" :buttonText="buttonText" />
+      </p>
+    </form>
+  </div>
 </template>
 
 <script setup>
@@ -49,7 +57,7 @@ import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
 // Route Variables
 const route = "/auth/login";
-const buttonText = "Test the Sign In Route";
+const buttonText = "Inicia Sesión";
 // Input Fields
 const email = ref(null);
 const password = ref(null);

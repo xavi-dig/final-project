@@ -1,54 +1,52 @@
 <template>
-  <div class="md:min-h-screen">
-    <div class="bg-blue-50 rounded px-12 py-6 shadow-md">
-      <p class="my-4 font-bold text-center">Inicia sesión en TaskApp</p>
-      <p v-if="errorMsg" class="">
-        {{ errorMsg }}
-      </p>
-      <form @submit.prevent="signIn">
+  <div class="bg-blue-50 rounded px-12 py-6 shadow-md">
+    <p class="my-4 font-bold text-center">Inicia sesión en TaskApp</p>
+    <p v-if="errorMsg" class="">
+      {{ errorMsg }}
+    </p>
+    <form @submit.prevent="signIn">
+      <div class="">
+        <!-- <label class="" for="">Email</label> -->
+        <input
+          class="inputField mb-4"
+          type="email"
+          placeholder="Introduce tu correo electrónico"
+          v-model="email"
+          id="email"
+        />
+      </div>
+      <div class="mb-4">
+        <!-- <label class="" for="">Password</label> -->
+
         <div class="">
-          <!-- <label class="" for="">Email</label> -->
           <input
             class="inputField mb-4"
-            type="email"
-            placeholder="Introduce tu correo electrónico"
-            v-model="email"
-            id="email"
+            :type="passwordFieldType"
+            onpaste="return false"
+            placeholder="Introduce tu contraseña"
+            v-model="password"
+            id="password"
           />
-        </div>
-        <div class="mb-4">
-          <!-- <label class="" for="">Password</label> -->
-
-          <div class="">
-            <input
-              class="inputField mb-4"
-              :type="passwordFieldType"
-              onpaste="return false"
-              placeholder="Introduce tu contraseña"
-              v-model="password"
-              id="password"
+          <span class="">
+            <EyeIcon
+              :class="[passwordFieldIcon]"
+              @click.prevent="hidePassword = !hidePassword"
             />
-            <span class="">
-              <EyeIcon
-                :class="[passwordFieldIcon]"
-                @click.prevent="hidePassword = !hidePassword"
-              />
-            </span>
-          </div>
+          </span>
         </div>
+      </div>
 
-        <button
-          class="w-full py-2 px-4 text-sm leading-5 text-blue-50 bg-blue-800 hover:bg-blue-700 font-medium focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 rounded-md"
-          type="submit"
-        >
-          Sign In
-        </button>
-        <p class="my-4 font-medium text-center">
-          <PersonalRouter :route="route" :buttonText="buttonText" />
-          <span class=""> para crear tu cuenta</span>
-        </p>
-      </form>
-    </div>
+      <button
+        class="w-full py-2 px-4 text-sm leading-5 text-blue-50 bg-blue-800 hover:bg-blue-700 font-medium focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 rounded-md"
+        type="submit"
+      >
+        Iniciar Sesión
+      </button>
+      <p class="my-4 font-medium text-center">
+        <PersonalRouter :route="route" :buttonText="buttonText" />
+        <span class=""> para crear tu cuenta</span>
+      </p>
+    </form>
   </div>
 </template>
 
