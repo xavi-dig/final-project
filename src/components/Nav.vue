@@ -36,8 +36,8 @@
         >
           <li class="flex items-center justify-center">
             <p class="text-center py-2 pr-4 pl-3 text-gray-700 md:p-0">
-              Welcome Back
-              <span class="font-bold">xromero82</span>
+              Bienvenido
+              <span class="font-bold">{{ userSingIn }}</span>
             </p>
           </li>
           <li class="flex justify-center pt-4 md:pt-0">
@@ -60,6 +60,9 @@ import router from "../router";
 import { useUserStore } from "../stores/user";
 
 const userStore = useUserStore();
+
+const getUser = userStore.user.email;
+const userSingIn = getUser.substring(0, getUser.indexOf("@"));
 
 async function signOut() {
   await userStore.signOut();
