@@ -1,6 +1,6 @@
 <template>
   <div class="bg-blue-50 rounded px-12 py-6 shadow-md">
-    <p>Inicia sesión en TaskApp</p>
+    <p class="my-4 font-bold text-center">Inicia sesión en TaskApp</p>
     <p v-if="errorMsg" class="">
       {{ errorMsg }}
     </p>
@@ -42,9 +42,9 @@
       >
         Sign In
       </button>
-      <p class="">
-        <span class="">Don’t have an account? </span>
+      <p class="my-4 font-medium text-center">
         <PersonalRouter :route="route" :buttonText="buttonText" />
+        <span class=""> para crear tu cuenta</span>
       </p>
     </form>
   </div>
@@ -60,7 +60,7 @@ import { storeToRefs } from "pinia";
 
 // Route Variables
 const route = "/auth/sign-up";
-const buttonText = "Test the Sign Up Route";
+const buttonText = "Registrate";
 
 // Input Fields
 const email = ref("");
@@ -111,7 +111,7 @@ const signIn = async () => {
   margin-bottom: 1rem;
 }
 .button {
-  background-color: #4caf50; /* Green */
+  background-color: rgb(30 64 175);
   border: none;
   color: white;
   padding: 10px 10px;
