@@ -10,7 +10,7 @@
         <input
           class="inputField mb-4"
           type="email"
-          placeholder="Introduce tu correo electrónico"
+          placeholder="Introduce tu e-mail"
           v-model="email"
           id="email"
         />
