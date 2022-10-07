@@ -17,7 +17,7 @@
           Organiza tu día, Aumenta tu productividad desde Ya!
         </p>
         <p class="mb-10 text-lg text-coolGray-500 font-medium">
-          Hoy es 6 Oct 2022
+          {{ hoy }}
         </p>
         <div class="mb-6">
           <div class="flex flex-col px-4">
@@ -57,6 +57,9 @@
 
 <script setup>
 import { ref } from "vue";
+// importamos moment.js y definimos idioma
+import moment from "moment";
+import "moment/locale/es";
 import { supabase } from "../supabase";
 import { useTaskStore } from "../stores/task.js";
 const emit = defineEmits(["childNewTask"]);
@@ -78,6 +81,12 @@ function onInput() {
     console.log(taskTitle.value);
   }
 }
+
+//mostramos fecha pero no conseguimos ponerla en ESP
+moment.locale("es");
+const hoy = moment().format("LL");
+
+console.log(hoy);
 
 // async function uploadTask() {
 //   const { data, error } = await supabase.from("tasks").insert([

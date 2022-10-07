@@ -23,6 +23,7 @@ import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 // importamos la función de las tareas en SupaBase desde la store
 import { useTaskStore } from "../stores/task";
+
 //Declaramos una variable en formato Array para guardar tareas
 let tasks = ref([]);
 

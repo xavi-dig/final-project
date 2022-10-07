@@ -6,6 +6,9 @@ import router from "./router";
 
 import "./assets/main.css";
 
+/* Importamos FlowBite */
+import "flowbite";
+
 const app = createApp(App);
 
 app.use(createPinia());
