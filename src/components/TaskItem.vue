@@ -65,7 +65,7 @@
         </p>
         <div class="flex justify-between pt-4">
           <button
-            v-if="completeItem"
+            v-if="!completeBooleanValue"
             title="Marcar Tarea como Completada"
             @click="completeItem"
             class="text-white p-2 rounded bg-green-600 hover:bg-green-500"
@@ -88,7 +88,7 @@
           </button>
 
           <button
-            v-else
+            v-if="completeBooleanValue"
             title="Marcar Tarea como No Completada"
             @click="incompleteItem"
             class="text-white p-2 rounded bg-red-600 hover:bg-red-500"
@@ -223,12 +223,16 @@ function childDelete() {
   emit("childDelete", props.taskData);
 }
 
+const completeBooleanValue = ref(false);
+
 function completeItem() {
   emit("completeItem", props.taskData);
+  completeBooleanValue.value = !completeBooleanValue.value;
 }
 
 function incompleteItem() {
   emit("incompleteItem", props.taskData);
+  completeBooleanValue.value = !completeBooleanValue.value;
 }
 </script>
 

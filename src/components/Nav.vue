@@ -105,7 +105,7 @@
               class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
               ><button
                 type="submit"
-                @click="signOut"
+                @click.prevent="signOut"
                 class="ml-8 py-2 px-4 text-sm text-blue-50 bg-blue-800 hover:bg-blue-700 font-medium focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 rounded-md"
               >
                 Log Out

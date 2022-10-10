@@ -70,5 +70,11 @@
 ### Completados
 
 - Footer completado
+- Completada lógica botón Complete Task
 
--
+## Tareas pendientes:
+
+- [] Cambiar idioma Moments a ESP
+- []
+- []
+- [] Añadir .prevent en clicks

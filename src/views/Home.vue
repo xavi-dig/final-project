@@ -57,9 +57,9 @@ async function updateTask(task) {
 }
 
 async function changeComplete(task) {
-  let booleanChange = !task.is_complete;
-  let taskId = task.id;
-  await taskStore.completeTask(taskId, booleanChange);
+  await taskStore.completeTask(task.id);
+  console.log(task.id);
+  console.log(task.is_complete);
   getTasksFromSupabase();
 }
 
@@ -68,6 +68,7 @@ async function changeIncomplete(task) {
   let taskID = task.id;
   await taskStore.incompleteTask(taskID, booleanChange);
   getTasksFromSupabase();
+  console.log(booleanChange);
 }
 
 async function editFather(task) {
