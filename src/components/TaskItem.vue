@@ -65,6 +65,7 @@
         </p>
         <div class="flex justify-between pt-4">
           <button
+            v-if="completeItem"
             title="Marcar Tarea como Completada"
             @click="completeItem"
             class="text-white p-2 rounded bg-green-600 hover:bg-green-500"
@@ -85,6 +86,30 @@
               ></path>
             </svg>
           </button>
+
+          <button
+            v-else
+            title="Marcar Tarea como No Completada"
+            @click="incompleteItem"
+            class="text-white p-2 rounded bg-red-600 hover:bg-red-500"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+          </button>
+
           <button
             title="Editar Tarea"
             @click="toggleEdit"
@@ -174,11 +199,13 @@ function edit() {
   }
 }
 
-function completeItem() {
-  emit("completeItem", props.taskData);
-}
-
-const emit = defineEmits(["childDelete", "childUpdate", "childEdit"]);
+const emit = defineEmits([
+  "childDelete",
+  "childUpdate",
+  "childEdit",
+  "completeItem",
+  "incompleteItem",
+]);
 
 const props = defineProps(["taskData"]);
 
@@ -189,11 +216,19 @@ function childUpdate() {
 }
 // Reference for future
 // function childDelete() {
-//   emit("le pasaremos el nombre del emit que queremos usar" , los valores del prop, o basicamente lo que queremos enviar )
+//   emit("le pasaremos el nombre del emit que queremos usar" , los valores del prop, o lo que queremos enviar )
 // }
 
 function childDelete() {
   emit("childDelete", props.taskData);
+}
+
+function completeItem() {
+  emit("completeItem", props.taskData);
+}
+
+function incompleteItem() {
+  emit("incompleteItem", props.taskData);
 }
 </script>
 

@@ -1,17 +1,21 @@
 <template>
-  <div
+  <footer
     class="flex justify-center flex-col flex-nowrap content-center items-center"
   >
-    <a href="/"
+    <a class="flex flex-col" href="/"
       ><img
-        src="https://res.cloudinary.com/dnsnkrcru/image/upload/v1648481844/taskApp/imgs/logo-small_bh8xj2.svg"
-        alt="TaskApp"
-        class="mr-3 h-6 sm:h-9"
-    /></a>
-    <p class="py-10 md:pb-20 text-center text-sm sm:text-lg">
+        src="https://flowbite.com/docs/images/logo.svg"
+        class="h-6 sm:h-9"
+        alt="TaskApp Logo"
+      />
+      <span class="self-center text-xl font-semibold whitespace-nowrap mt-2"
+        >TaskApp</span
+      ></a
+    >
+    <p class="py-5 md:pb-10 text-center text-sm sm:text-lg">
       © 2022 TaskApp. All rights reserved. Hecho con 😭 por Xavi Romero
     </p>
-  </div>
+  </footer>
 </template>
 
 <script setup></script>

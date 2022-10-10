@@ -84,9 +84,9 @@ function onInput() {
 
 //mostramos fecha pero no conseguimos ponerla en ESP
 moment.locale("es");
-const hoy = moment().format("LL");
 
-console.log(hoy);
+const fecha = Date.now(); // obtenemos la fecha actual
+const hoy = moment(fecha).format("D MMMM YYYY"); // 16 Febrero 2021
 
 // async function uploadTask() {
 //   const { data, error } = await supabase.from("tasks").insert([

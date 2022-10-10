@@ -40,12 +40,35 @@
 
 ### Objetivos
 
-- Terminar menú hamburguesa
+- Completada página SignUp V1.0
 - Completar SignUp V1.0
+- Completar menú hamburguesa
+- Completar mostrar usuario limpiando @cliente
 - Añadir funcionalidades a TaskItem
-- mejorar estilos generales - V1.2
+- Mejorar estilos generales - V1.2
 
 ### Completados
 
 - Completada página SignUp V1.0
+- Completada SignUp V1.0
+- Instalado Flowbite
+- Terminado menú hamburguesa con estilos
 - Completado mostrar usuario limpiando @cliente
+- Nuevos estilos aplicados
+- Instalado Moments
+- Logo modificado
+
+## Día 5 - Lunes
+
+### Objetivos
+
+- Cambiar idioma ESP Moments
+- Completar lógica botón completado
+- Añadir funcionalidades a TaskItem (ordenar por # y drag and drop)
+- Mejorar estilos generales - V1.2
+
+### Completados
+
+- Footer completado
+
+-

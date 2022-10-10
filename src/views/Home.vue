@@ -10,6 +10,7 @@
       @childUpdate="updateTask"
       @childEdit="editFather"
       @completeItem="changeComplete"
+      @incompleteItem="changeIncomplete"
     />
   </div>
   <Footer />
@@ -59,6 +60,13 @@ async function changeComplete(task) {
   let booleanChange = !task.is_complete;
   let taskId = task.id;
   await taskStore.completeTask(taskId, booleanChange);
+  getTasksFromSupabase();
+}
+
+async function changeIncomplete(task) {
+  let booleanChange = !task.is_complete;
+  let taskID = task.id;
+  await taskStore.incompleteTask(taskID, booleanChange);
   getTasksFromSupabase();
 }
 
