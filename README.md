@@ -40,7 +40,7 @@
 
 ### Objetivos
 
-- Completada página SignUp V1.0
+- Completada página SignIn V1.0
 - Completar SignUp V1.0
 - Completar menú hamburguesa
 - Completar mostrar usuario limpiando @cliente
@@ -49,7 +49,7 @@
 
 ### Completados
 
-- Completada página SignUp V1.0
+- Completada página SignIn V1.0
 - Completada SignUp V1.0
 - Instalado Flowbite
 - Terminado menú hamburguesa con estilos
