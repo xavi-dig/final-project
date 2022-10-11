@@ -66,15 +66,34 @@
 - Completar lógica botón completado
 - Añadir funcionalidades a TaskItem (ordenar por # y drag and drop)
 - Mejorar estilos generales - V1.2
+- Estudio nuevas funcionalidades
 
 ### Completados
 
 - Footer completado
 - Completada lógica botón Complete Task
+- Deployed Vercel
+- Buscar nuevas funcionalidades
+- Mejorar estilos generales
+
+## Día 6 - Martes
+
+### Objetivos
+
+- Cambiar idioma ESP Moments
+- Completar estilos tarea individual
+- Añadir funcionalidades a TaskItem
+- Mejorar estilos generales - V1.2
+- Estudio nuevas funcionalidades
+
+### Completados
 
 ## Tareas pendientes:
 
 - [] Cambiar idioma Moments a ESP
-- []
-- []
+- [] Ordenar Tareas por #
+- [] Estudiar Drag and Drops
+- [] Hook tarea Complete
+- [] Tareas hechas enviar al final
+- [] Posibilidad de añadir foto de perfil + nombre y fecha a la tarea
 - [] Añadir .prevent en clicks
