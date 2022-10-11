@@ -153,6 +153,7 @@
             </svg>
           </button>
         </div>
+        <div class="flex justify-between pt-4"><p>Fecha</p></div>
       </div>
     </div>
   </div>

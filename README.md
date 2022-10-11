@@ -88,12 +88,18 @@
 
 ### Completados
 
+- Arreglado botón complete true/false en Supabase
+- Estudio de nuevas funcionalidades
+- Fecha en task item, falta moments
+- Prioridad
+
 ## Tareas pendientes:
 
 - [] Cambiar idioma Moments a ESP
+- [] Moments en Task
 - [] Ordenar Tareas por #
 - [] Estudiar Drag and Drops
-- [] Hook tarea Complete
+- [x] Arreglar tarea Complete
 - [] Tareas hechas enviar al final
 - [] Posibilidad de añadir foto de perfil + nombre y fecha a la tarea
 - [] Añadir .prevent en clicks
