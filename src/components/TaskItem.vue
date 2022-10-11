@@ -160,6 +160,7 @@
 
 <script setup>
 import { ref } from "vue";
+import { useTaskStore } from "../stores/task";
 
 //Creamos una variable booleana para monstrar u ocultar edit
 let editInput = ref(false);
@@ -234,6 +235,17 @@ function incompleteItem() {
   emit("incompleteItem", props.taskData);
   completeBooleanValue.value = !completeBooleanValue.value;
 }
+
+async function checkStatus() {
+  let status = await useTaskStore().checkStatus(props.taskData.id);
+  if (status) {
+    completeBooleanValue.value = true;
+  } else {
+    completeBooleanValue.value = false;
+  }
+  // console.log("find checkStatus");
+}
+checkStatus();
 </script>
 
 <style></style>

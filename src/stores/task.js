@@ -58,18 +58,31 @@ export const useTaskStore = defineStore("tasks", {
         .match({ id: id });
     },
 
+    // Cambiar nombre función toggle para eliminar una (son iguales)
+
     async completeTask(id) {
       const { data, error } = await supabase
         .from("tasks")
-        .update({ is_complete: !this.is_complete })
+        .update({ is_complete: true })
         .match({ id: id });
+      console.log("completeTask");
     },
 
     async incompleteTask(id) {
       const { data, error } = await supabase
         .from("tasks")
-        .update({ is_complete: !this.is_complete })
+        .update({ is_complete: false })
         .match({ id: id });
+      console.log("aquí estoy");
+    },
+
+    async checkStatus(id) {
+      const { data, error } = await supabase
+        .from("tasks")
+        .select("is_complete")
+        .match({ id: id });
+      //console.log(data);
+      return data[0].is_complete;
     },
 
     // async deleteAllTasks() {
