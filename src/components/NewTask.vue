@@ -22,7 +22,7 @@
         <div class="mb-6">
           <div class="flex flex-col px-4">
             <input
-              class="inputField mb-4"
+              class="inputField mb-4 focus:outline-none focus:border-transparent focus:ring-1 focus:ring-transparent"
               placeholder="Añade un Título a tu tarea - Leer el mito de la caverna de Platón"
               type="text"
               name="newTodo"
@@ -31,7 +31,7 @@
             />
             <!-- v-model, almacena el input en una variable pre-definida (vacía, sino lo está, lo sobre-escribe) -->
             <input
-              class="inputField mb-4"
+              class="inputField mb-4 focus:outline-none focus:border-transparent focus:ring-1 focus:ring-transparent"
               placeholder="Añade una Descripción de tu Tarea - Comprar el libro 'La República' de Platón y buscar Cap.VII"
               type="text"
               name="newDescription"
@@ -40,7 +40,7 @@
             />
             <button
               @click.prevent="onInput"
-              class="inline-block py-2 px-4text-sm leading-5 text-blue-50 bg-blue-800 hover:bg-blue-700 font-medium focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 rounded-md"
+              class="inline-block py-2 px-4text-sm leading-5 text-blue-50 bg-sky-600 hover:bg-sky-500 font-medium focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50 rounded-md"
               type="submit"
             >
               Añadir
@@ -123,7 +123,10 @@ const hoy = moment(fecha).format("D MMMM YYYY"); // 16 Febrero 2021
   border-radius: 0.5rem;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  border-bottom-color: rgb(195 221 253) !important;
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
   padding: 0.75rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
