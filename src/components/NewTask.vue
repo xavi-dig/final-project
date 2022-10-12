@@ -14,9 +14,9 @@
           Añade una nueva Tarea
         </h2>
         <p class="text-lg md:text-xl text-coolGray-500 font-medium">
-          Organiza tu día, Aumenta tu productividad desde Ya!
+          Organiza tu día. ¡Aumenta tu productividad desde Ya!
         </p>
-        <p class="mb-10 text-lg text-coolGray-500 font-medium">
+        <p class="mb-10 text-lg text-blue-500 font-medium">
           {{ hoy }}
         </p>
         <div class="mb-6">
