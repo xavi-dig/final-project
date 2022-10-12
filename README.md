@@ -119,3 +119,4 @@
 - [] Posibilidad de añadir foto de perfil + nombre y fecha a la tarea
 - [] Añadir .prevent en clicks
 - [] Implementar sistema de #
+- [] Crear presentación
