@@ -104,22 +104,39 @@
 - Mejorar estilos generales - V1.2
 - Implementar sistema de #
 - eyeicon pass
-- revisiar que el MVP esté completado
+- revisar que el MVP esté completado
 
 ### Completados
 
 - Estudiar funcionalidades
+- Idioma moments cambiado a ESP
+- Añadida fecha a tarea con moments
+- Cambiados estilos NewTask
+- Cambiados estilos TaskItem
 
 ## Tareas pendientes:
 
-- [] Cambiar idioma Moments a ESP
-- [] Moments en Task
+- [x] Cambiar idioma Moments a ESP
+- [x] Moments en Task
 - [] Ordenar Tareas por #
 - [] Estudiar Drag and Drops
 - [x] Arreglar tarea Complete
-- [] Tareas hechas enviar al final
 - [] Posibilidad de añadir foto de perfil + nombre y fecha a la tarea
 - [] Añadir .prevent en clicks
 - [] Implementar sistema de #
 - [] Crear presentación
-- [] eye icon pass
+- [] eye-icon pass
+- [] añadir botón + al final de tareas para añadir tarea nueva
+
+## Día 8 - Jueves
+
+### Objetivos
+
+- Añadir botón + al final de tareas para añadir tarea nueva
+- eye-icon pass
+- Añadir funcionalidades a TaskItem
+- Mejorar estilos generales - V1.2
+- Implementar sistema de #
+- Implementar eyeicon pass
+- revisiar que el MVP esté completado
+- Añadir funcionalidad TaskItem de prioridad de tarea mediante desplegable

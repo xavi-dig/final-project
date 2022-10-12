@@ -63,12 +63,12 @@
         >
           {{ taskData.description }}
         </p>
-        <div class="flex justify-between pt-4">
+        <div class="flex justify-evenly pt-4">
           <button
             v-if="!completeBooleanValue"
             title="Marcar Tarea como Completada"
             @click="completeItem"
-            class="text-white p-2 rounded bg-green-600 hover:bg-green-500"
+            class="text-white p-2 rounded bg-green-500 hover:bg-green-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@
             v-if="completeBooleanValue"
             title="Marcar Tarea como No Completada"
             @click="incompleteItem"
-            class="text-white p-2 rounded bg-red-600 hover:bg-red-500"
+            class="text-white p-2 rounded bg-indigo-500 hover:bg-indigo-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@
           <button
             title="Editar Tarea"
             @click="toggleEdit"
-            class="text-white p-2 rounded bg-yellow-400 hover:bg-yellow-500"
+            class="text-white p-2 rounded bg-amber-500 hover:bg-amber-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -153,8 +153,8 @@
             </svg>
           </button>
         </div>
-        <div class="flex justify-between pt-4">
-          <p>{{ fecha }}</p>
+        <div class="flex justify-left pt-4">
+          <p class="text-slate-500">{{ fecha }}</p>
         </div>
       </div>
     </div>
