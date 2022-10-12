@@ -92,6 +92,21 @@
 - Estudio de nuevas funcionalidades
 - Fecha en task item, falta moments
 - Prioridad
+- Implementado el contador de tareas a pelo con estilos
+
+## Día 7 - Miércoles
+
+### Objetivos
+
+- Cambiar idioma ESP Moments
+- Completar estilos tarea individual
+- Añadir funcionalidades a TaskItem
+- Mejorar estilos generales - V1.2
+- Implementar sistema de #
+
+### Completados
+
+- Estudiar funcionalidades
 
 ## Tareas pendientes:
 
@@ -103,3 +118,4 @@
 - [] Tareas hechas enviar al final
 - [] Posibilidad de añadir foto de perfil + nombre y fecha a la tarea
 - [] Añadir .prevent en clicks
+- [] Implementar sistema de #
