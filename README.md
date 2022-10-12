@@ -114,20 +114,6 @@
 - Cambiados estilos NewTask
 - Cambiados estilos TaskItem
 
-## Tareas pendientes:
-
-- [x] Cambiar idioma Moments a ESP
-- [x] Moments en Task
-- [] Ordenar Tareas por #
-- [] Estudiar Drag and Drops
-- [x] Arreglar tarea Complete
-- [] Posibilidad de añadir foto de perfil + nombre y fecha a la tarea
-- [] Añadir .prevent en clicks
-- [] Implementar sistema de #
-- [] Crear presentación
-- [] eye-icon pass
-- [] añadir botón + al final de tareas para añadir tarea nueva
-
 ## Día 8 - Jueves
 
 ### Objetivos
@@ -140,3 +126,18 @@
 - Implementar eyeicon pass
 - revisiar que el MVP esté completado
 - Añadir funcionalidad TaskItem de prioridad de tarea mediante desplegable
+
+## Tareas pendientes:
+
+- [x] Cambiar idioma Moments a ESP
+- [x] Moments en Task
+- [] No se ve icono Tarea en móvil (iPhone)
+- [] Ordenar Tareas por #
+- [] Estudiar Drag and Drops
+- [x] Arreglar tarea Complete
+- [] Posibilidad de añadir foto de perfil + nombre y fecha a la tarea
+- [] Añadir .prevent en clicks
+- [] Implementar sistema de #
+- [] Crear presentación
+- [] eye-icon pass
+- [] añadir botón + al final de tareas para añadir tarea nueva
