@@ -1,6 +1,19 @@
 <template>
   <Nav />
   <NewTask @childNewTask="createNewTask" />
+
+  <!-- -->
+  <div class="flex flex-row justify-around mt-10">
+    <div>
+      <span class="text-white bg-indigo-500 px-4 py-2 rounded">Total : 7</span>
+    </div>
+    <div>
+      <span class="text-white bg-green-500 px-4 py-2 rounded">Success : 0</span>
+    </div>
+    <div>
+      <span class="text-white bg-rose-500 px-4 py-2 rounded">Pending : 3</span>
+    </div>
+  </div>
   <div class="flex flex-wrap -mx-4 mt-24">
     <TaskItem
       v-for="(task, index) in tasks"
