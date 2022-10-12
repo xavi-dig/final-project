@@ -103,6 +103,8 @@
 - Añadir funcionalidades a TaskItem
 - Mejorar estilos generales - V1.2
 - Implementar sistema de #
+- eyeicon pass
+- revisiar que el MVP esté completado
 
 ### Completados
 
@@ -120,3 +122,4 @@
 - [] Añadir .prevent en clicks
 - [] Implementar sistema de #
 - [] Crear presentación
+- [] eye icon pass

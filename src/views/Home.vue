@@ -5,19 +5,25 @@
   <!-- -->
   <div class="flex flex-row justify-around mt-10">
     <div>
-      <span class="text-white bg-indigo-500 px-4 py-2 rounded">Total : 7</span>
+      <span class="text-white bg-indigo-500 px-4 py-2 rounded"
+        >Total Tareas: {{ tasks.length }}</span
+      >
     </div>
     <div>
-      <span class="text-white bg-green-500 px-4 py-2 rounded">Success : 0</span>
+      <span class="text-white bg-green-500 px-4 py-2 rounded"
+        >Finalizadas : {{ completedTasks.length }}</span
+      >
     </div>
     <div>
-      <span class="text-white bg-rose-500 px-4 py-2 rounded">Pending : 3</span>
+      <span class="text-white bg-rose-500 px-4 py-2 rounded"
+        >Pendientes : {{ incompletedTasks.length }}</span
+      >
     </div>
   </div>
   <div class="flex flex-wrap -mx-4 mt-24">
     <TaskItem
-      v-for="(task, index) in tasks"
-      :key="index"
+      v-for="task in tasks"
+      :key="task"
       v-bind:taskData="task"
       @childDelete="deleteTask"
       @childUpdate="updateTask"
@@ -31,6 +37,7 @@
 
 <script setup>
 import { ref } from "vue";
+
 import Nav from "../components/Nav.vue";
 import Footer from "../components/Footer.vue";
 import NewTask from "../components/NewTask.vue";
@@ -41,13 +48,30 @@ import { useTaskStore } from "../stores/task";
 //Declaramos una variable en formato Array para guardar tareas
 let tasks = ref([]);
 
+//
+let completedTasks = ref([]);
+let incompletedTasks = ref([]);
+
 //Definimos la tienda de tareas dentro de una variablepara poder utilizarla en este archivo de forma más limpia
 let taskStore = useTaskStore();
 
 //Creamos una función para conseguir las tareas de SupaBase
 async function getTasksFromSupabase() {
-  //Aquíes dónde nos traemos la tienda
+  //Aquí es dónde nos traemos la tienda
   tasks.value = await taskStore.fetchTasks();
+  //Aquí nos dice cuantas tareas tenemos completadas/incompletadas
+  completedTasks.value = tasks.value.filter((task) => task.is_complete);
+  incompletedTasks.value = tasks.value.filter((task) => !task.is_complete);
+
+  // Aquí otra manera de solucionar el contador de tareas completadas e incompletadas con filter y arrow function
+  // completedTasks.value = tasks.value.filter((task) => {
+  //   if (task.is_complete === true) return task;
+  // });
+  // incompletedTasks.value = tasks.value.filter((task) => {
+  //   if (task.is_complete === false) return task;
+  // });
+
+  console.log(tasks.value);
 }
 getTasksFromSupabase();
 

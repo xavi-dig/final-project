@@ -155,7 +155,7 @@
           </button>
         </div>
         <div class="flex justify-between pt-4">
-          <p>Fecha</p>
+          <p>{{ fecha }}</p>
         </div>
       </div>
     </div>
@@ -165,7 +165,15 @@
 <script setup>
 import { ref } from "vue";
 import { useTaskStore } from "../stores/task";
+// importamos moment.js y definimos idioma
+import moment from "moment";
+import "moment/dist/locale/es";
 
+moment.locale("es");
+const fecha = ref(moment(props.taskData.inserted_at).format("DD MMMM YYYY"));
+// const fecha = ref(
+//   props.taskData.inserted_at.toLocaleDateString("es-ES", { month: "long" })
+// );
 //Creamos una variable booleana para monstrar u ocultar edit
 let editInput = ref(false);
 
