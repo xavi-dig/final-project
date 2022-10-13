@@ -32,6 +32,9 @@
       @incompleteItem="changeIncomplete"
     />
   </div>
+  <div class="flex justify-center mb-20">
+    <a href="#"><PlusCircleIcon class="w-20 h-20 text-blue-500" /></a>
+  </div>
   <Footer />
 </template>
 
@@ -42,6 +45,7 @@ import Nav from "../components/Nav.vue";
 import Footer from "../components/Footer.vue";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
+import { PlusCircleIcon } from "@heroicons/vue/24/solid";
 // importamos la función de las tareas en SupaBase desde la store
 import { useTaskStore } from "../stores/task";
 

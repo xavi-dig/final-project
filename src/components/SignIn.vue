@@ -28,7 +28,11 @@
             id="password"
           />
           <span class="z-10 h-full absolute w-8 right-0 bottom-1 pr-3 py-4">
-            <EyeIcon @click.prevent="hidePassword = !hidePassword" />
+            <EyeIcon
+              v-if="hidePassword"
+              @click.prevent="hidePassword = false"
+            />
+            <EyeSlashIcon v-else @click.prevent="hidePassword = true" />
           </span>
         </div>
       </div>
@@ -54,7 +58,7 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
-import { BeakerIcon, EyeIcon } from "@heroicons/vue/24/solid";
+import { BeakerIcon, EyeIcon, EyeSlashIcon } from "@heroicons/vue/24/solid";
 
 // Route Variables
 const route = "/auth/sign-up";

@@ -27,14 +27,23 @@
         />
       </div>
       <div class="mb-4">
-        <!-- <label class="" for="">Confirm Password</label> -->
-        <input
-          class="inputField inputFieldShadow mb-4"
-          type="password"
-          placeholder="Confirma tu contraseña"
-          v-model="confirmPassword"
-          id="confirmPassword"
-        />
+        <div class="relative flex w-full flex-wrap items-stretch mb-3">
+          <!-- <label class="" for="">Confirm Password</label> -->
+          <input
+            class="inputField inputFieldShadow mb-4"
+            type="password"
+            placeholder="Confirma tu contraseña"
+            v-model="confirmPassword"
+            id="confirmPassword"
+          />
+          <span class="z-10 h-full absolute w-8 right-0 bottom-1 pr-3 py-4">
+            <EyeIcon
+              v-if="hidePassword"
+              @click.prevent="hidePassword = false"
+            />
+            <EyeSlashIcon v-else @click.prevent="hidePassword = true" />
+          </span>
+        </div>
       </div>
       <button
         class="w-full py-2 px-4 text-sm leading-5 text-blue-50 bg-blue-800 hover:bg-blue-700 font-medium focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 rounded-md"
@@ -51,10 +60,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/vue/24/solid";
 // Route Variables
 const route = "/auth/login";
 const buttonText = "Inicia Sesión";
@@ -63,6 +73,12 @@ const email = ref(null);
 const password = ref(null);
 const confirmPassword = ref(null);
 const errorMsg = ref(null);
+
+const hidePassword = ref(true);
+const passwordFieldType = computed(() =>
+  hidePassword.value ? "password" : "text"
+);
+
 // Error Message
 // Show hide password variable
 // Show hide confrimPassword variable
@@ -83,7 +99,7 @@ async function signUp() {
     }
     return;
   }
-  errorMsg.value = "Passwords do not match";
+  errorMsg.value = "Las contraseñas no coinciden";
   setTimeout(() => {
     errorMsg.value = null;
   }, 5000);

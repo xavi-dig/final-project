@@ -135,6 +135,20 @@
 - Tachar tarea cuando completado
 - Eye-icon pass completado
 - clase inputField llevada a main.css
+
+## Día 9 - Viernes
+
+### Objetivos
+
+- Añadir .prevent en clicks
+- Crear presentación
+- Completar lógica botón añadir tarea
+- Completar lógica y estilos prioridades en tareas
+- Reparar menú burger
+- Completar eyeicon en SignUp
+
+### Completados
+
 -
 
 ## Tareas pendientes:
