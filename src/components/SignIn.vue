@@ -18,7 +18,7 @@
       <div class="mb-4">
         <!-- <label class="" for="">Password</label> -->
 
-        <div class="">
+        <div class="relative flex w-full flex-wrap items-stretch mb-3">
           <input
             class="inputField mb-4"
             :type="passwordFieldType"
@@ -27,11 +27,8 @@
             v-model="password"
             id="password"
           />
-          <span class="">
-            <EyeIcon
-              :class="[passwordFieldIcon]"
-              @click.prevent="hidePassword = !hidePassword"
-            />
+          <span class="z-10 h-full absolute w-8 right-0 bottom-1 pr-3 py-4">
+            <EyeIcon @click.prevent="hidePassword = !hidePassword" />
           </span>
         </div>
       </div>
@@ -57,6 +54,7 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
+import { BeakerIcon, EyeIcon } from "@heroicons/vue/24/solid";
 
 // Route Variables
 const route = "/auth/sign-up";
