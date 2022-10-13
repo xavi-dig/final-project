@@ -16,8 +16,8 @@
         <p class="text-lg md:text-xl text-coolGray-500 font-medium">
           Organiza tu día. ¡Aumenta tu productividad desde Ya!
         </p>
-        <p class="mb-10 text-lg text-blue-500 font-medium">
-          {{ hoy }}
+        <p class="mb-10 text-lg text-coolGray-900 font-medium">
+          Hoy es {{ hoy }}
         </p>
         <div class="mb-6">
           <div class="flex flex-col px-4">
@@ -38,6 +38,7 @@
               id="description"
               v-model="taskDesc"
             />
+
             <button
               @click.prevent="onInput"
               class="inline-block py-2 px-4text-sm leading-5 text-blue-50 bg-sky-600 hover:bg-sky-500 font-medium focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50 rounded-md"
@@ -113,7 +114,7 @@ const hoy = moment(fecha).format("D MMMM YYYY"); // 16 Febrero 2021
 </script>
 
 <style>
-.inputField {
+/* .inputField {
   position: relative;
   display: block;
   width: 100%;
@@ -170,5 +171,5 @@ const hoy = moment(fecha).format("D MMMM YYYY"); // 16 Febrero 2021
   font-weight: 500;
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
-}
+} */
 </style>

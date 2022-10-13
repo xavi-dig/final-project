@@ -127,17 +127,30 @@
 - revisiar que el MVP esté completado
 - Añadir funcionalidad TaskItem de prioridad de tarea mediante desplegable
 
+### Completados
+
+- Solucionado redirect SignUp
+- Import libreria HeroIcons
+- Arreglado icono visible en móviles
+- Tachar tarea cuando completado
+- Eye-icon pass completado
+- clase inputField llevada a main.css
+-
+
 ## Tareas pendientes:
 
 - [x] Cambiar idioma Moments a ESP
 - [x] Moments en Task
-- [] No se ve icono Tarea en móvil (iPhone)
+- [x] No se ve icono Tarea en móvil (iPhone)
+- [x] Cuando la tarea es completa tachar tarea disable botones
 - [] Ordenar Tareas por #
+- [] Implementar sistema de #
 - [] Estudiar Drag and Drops
 - [x] Arreglar tarea Complete
-- [] Posibilidad de añadir foto de perfil + nombre y fecha a la tarea
+- [x] Añadir fecha a la tarea
 - [] Añadir .prevent en clicks
-- [] Implementar sistema de #
 - [] Crear presentación
-- [] eye-icon pass
+- [x] eye-icon pass
 - [] añadir botón + al final de tareas para añadir tarea nueva
+- [x] inputField revisar
+- [] menú burger reparar actualizar para que funcione

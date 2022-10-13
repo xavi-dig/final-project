@@ -3,7 +3,7 @@
   <NewTask @childNewTask="createNewTask" />
 
   <!-- -->
-  <div class="flex flex-row flex-wrap justify-center mt-10">
+  <div class="flex flex-row flex-wrap justify-evenly mt-10">
     <div class="m-3">
       <span class="text-white bg-indigo-500 px-4 py-2 rounded uppercase"
         >Total Tareas: {{ tasks.length }}</span
@@ -11,12 +11,12 @@
     </div>
     <div class="m-3">
       <span class="text-white bg-green-400 px-4 py-2 rounded uppercase"
-        >Finalizadas : {{ completedTasks.length }}</span
+        >Tareas Finalizadas : {{ completedTasks.length }}</span
       >
     </div>
     <div class="m-3">
       <span class="text-white bg-rose-500 px-4 py-2 rounded uppercase"
-        >Pendientes : {{ incompletedTasks.length }}</span
+        >Tareas Pendientes : {{ incompletedTasks.length }}</span
       >
     </div>
   </div>

@@ -8,7 +8,7 @@
       <div class="">
         <!-- <label class="" for="">Email</label> -->
         <input
-          class="inputField mb-4"
+          class="inputField inputFieldShadow mb-4"
           type="email"
           placeholder="Introduce tu e-mail"
           v-model="email"
@@ -20,7 +20,7 @@
 
         <div class="relative flex w-full flex-wrap items-stretch mb-3">
           <input
-            class="inputField mb-4"
+            class="inputField inputFieldShadow mb-4"
             :type="passwordFieldType"
             onpaste="return false"
             placeholder="Introduce tu contraseña"

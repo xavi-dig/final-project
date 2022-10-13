@@ -12,7 +12,8 @@
           <div
             class="inline-flex items-center justify-center w-12 h-12 text-white bg-blue-500 rounded-full p-3"
           >
-            <svg
+            <ClipboardIcon />
+            <!-- <svg
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -24,7 +25,7 @@
                 stroke-width="2"
                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
               ></path>
-            </svg>
+            </svg> -->
           </div>
         </div>
 
@@ -35,9 +36,12 @@
           class="inputField mb-4"
           v-model="editTitle"
         />
+
+        <!-- Vindear clases mdiante ternarios -->
         <h3
           v-else
           class="mb-4 text-xl leading-7 text-coolGray-900 font-bold max-w-xs"
+          :class="taskData.is_complete ? 'line-through text-green-500' : ''"
         >
           {{ taskData.title }}
         </h3>
@@ -60,6 +64,7 @@
         <p
           v-else
           class="text-coolGray-500 group-hover:text-coolGray-600 font-medium transition duration-200"
+          :class="taskData.is_complete ? 'line-through text-green-500' : ''"
         >
           {{ taskData.description }}
         </p>
@@ -167,6 +172,7 @@ import { useTaskStore } from "../stores/task";
 // importamos moment.js y definimos idioma
 import moment from "moment";
 import "moment/dist/locale/es";
+import { BeakerIcon, EyeIcon, ClipboardIcon } from "@heroicons/vue/24/solid";
 
 moment.locale("es");
 const fecha = ref(moment(props.taskData.inserted_at).format("DD MMMM YYYY"));

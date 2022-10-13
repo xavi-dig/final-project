@@ -9,7 +9,7 @@
       <div class="">
         <!-- <label class="" for="">Email</label> -->
         <input
-          class="inputField mb-4"
+          class="inputField inputFieldShadow mb-4"
           type="email"
           placeholder="Introduce tu e-mail"
           v-model="email"
@@ -19,7 +19,7 @@
       <div class="mb-4">
         <!-- <label class="" for="">Password</label> -->
         <input
-          class="inputField mb-4"
+          class="inputField inputFieldShadow mb-4"
           type="password"
           placeholder="Introduce tu contraseña"
           v-model="password"
@@ -29,7 +29,7 @@
       <div class="mb-4">
         <!-- <label class="" for="">Confirm Password</label> -->
         <input
-          class="inputField mb-4"
+          class="inputField inputFieldShadow mb-4"
           type="password"
           placeholder="Confirma tu contraseña"
           v-model="confirmPassword"
