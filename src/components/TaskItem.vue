@@ -13,19 +13,6 @@
             class="inline-flex items-center justify-center w-12 h-12 text-white bg-blue-500 rounded-full p-3"
           >
             <ClipboardIcon />
-            <!-- <svg
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-              ></path>
-            </svg> -->
           </div>
         </div>
 
@@ -53,7 +40,7 @@
           />
 
           <button
-            @click="edit"
+            @click.prevent="edit"
             class="w-full py-2 px-4 text-sm leading-5 text-blue-50 bg-blue-800 hover:bg-blue-700 font-medium focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 rounded-md"
             type="submit"
           >
@@ -72,7 +59,7 @@
           <button
             v-if="!completeBooleanValue"
             title="Marcar Tarea como Completada"
-            @click="completeItem"
+            @click.prevent="completeItem"
             class="text-white p-2 rounded bg-green-500 hover:bg-green-400"
           >
             <svg
@@ -95,7 +82,7 @@
           <button
             v-if="completeBooleanValue"
             title="Marcar Tarea como No Completada"
-            @click="incompleteItem"
+            @click.prevent="incompleteItem"
             class="text-white p-2 rounded bg-indigo-500 hover:bg-indigo-400"
           >
             <svg
@@ -117,7 +104,7 @@
 
           <button
             title="Editar Tarea"
-            @click="toggleEdit"
+            @click.prevent="toggleEdit"
             class="text-white p-2 rounded bg-amber-500 hover:bg-amber-400"
           >
             <svg
@@ -138,7 +125,7 @@
           </button>
           <button
             title="Eliminar Tarea"
-            @click="childDelete"
+            @click.prevent="childDelete"
             class="text-white p-2 rounded bg-rose-500 hover:bg-rose-400"
           >
             <svg
@@ -173,6 +160,7 @@ import { useTaskStore } from "../stores/task";
 import moment from "moment";
 import "moment/dist/locale/es";
 import { BeakerIcon, EyeIcon, ClipboardIcon } from "@heroicons/vue/24/solid";
+import Swal from "sweetalert2";
 
 moment.locale("es");
 const fecha = ref(moment(props.taskData.inserted_at).format("DD MMMM YYYY"));
@@ -237,8 +225,22 @@ function childUpdate() {
 //   emit("le pasaremos el nombre del emit que queremos usar" , los valores del prop, o lo que queremos enviar )
 // }
 
+// import Swal from "sweetalert2";
 function childDelete() {
-  emit("childDelete", props.taskData);
+  Swal.fire({
+    title: "¿Seguro que quieres borrar la tarea?",
+    color: "#000",
+    showCancelButton: true,
+    confirmButtonColor: "#31c48d",
+    cancelButtonColor: "#F43F5E",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      emit("childDelete", props.taskData);
+      Swal.fire("Eliminada", "Tu Tarea ha sido eliminada", "success");
+    }
+  });
+
+  // emit("childDelete", props.taskData);
 }
 
 const completeBooleanValue = ref(false);

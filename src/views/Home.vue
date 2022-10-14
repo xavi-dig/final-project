@@ -32,8 +32,13 @@
       @incompleteItem="changeIncomplete"
     />
   </div>
-  <div class="flex justify-center mb-20">
-    <a href="#"><PlusCircleIcon class="w-20 h-20 text-blue-500" /></a>
+  <div class="flex flex-col items-center justify-center mb-20">
+    <button @click="goToAddNewTask">
+      <PlusCircleIcon class="w-20 h-20 text-blue-500" />
+    </button>
+    <div v-if="addedNewTask">
+      <ButtonNewTask @childNewTask="createNewTask" />
+    </div>
   </div>
   <Footer />
 </template>
@@ -48,6 +53,7 @@ import TaskItem from "../components/TaskItem.vue";
 import { PlusCircleIcon } from "@heroicons/vue/24/solid";
 // importamos la función de las tareas en SupaBase desde la store
 import { useTaskStore } from "../stores/task";
+import ButtonNewTask from "../components/ButtonNewTask.vue";
 
 //Declaramos una variable en formato Array para guardar tareas
 let tasks = ref([]);
@@ -75,7 +81,7 @@ async function getTasksFromSupabase() {
   //   if (task.is_complete === false) return task;
   // });
 
-  console.log(tasks.value);
+  //console.log(tasks.value);
 }
 getTasksFromSupabase();
 
@@ -83,6 +89,7 @@ getTasksFromSupabase();
 async function createNewTask(title, description) {
   await taskStore.addTask(title, description);
   getTasksFromSupabase();
+  addedNewTask.value = false;
 }
 
 //Creamos una función async para borrar la tarea
@@ -99,8 +106,8 @@ async function updateTask(task) {
 
 async function changeComplete(task) {
   await taskStore.completeTask(task.id);
-  console.log(task.id);
-  console.log(task.is_complete);
+  //console.log(task.id);
+  //console.log(task.is_complete);
   getTasksFromSupabase();
 }
 
@@ -118,6 +125,12 @@ async function editFather(task) {
   let id = task.id;
   await taskStore.editTask(newTitle, newDescription, id);
   getTasksFromSupabase();
+}
+
+const addedNewTask = ref(false);
+
+function goToAddNewTask() {
+  addedNewTask.value = !addedNewTask.value;
 }
 </script>
 

@@ -133,7 +133,7 @@
 - Import libreria HeroIcons
 - Arreglado icono visible en móviles
 - Tachar tarea cuando completado
-- Eye-icon pass completado
+- Eye-icon pass completado y mejorado
 - clase inputField llevada a main.css
 
 ## Día 9 - Viernes
@@ -149,7 +149,12 @@
 
 ### Completados
 
--
+- Crear presentación
+- Prevent en clicks añadido
+- Reparar Nav, crearlo sin Flowbite
+- Añadido botón + al final de tareas para añadir tarea nueva
+- Config alert libreria y botón delete Task
+- Eliminar todos los console logs para limpiar consola
 
 ## Tareas pendientes:
 
@@ -162,9 +167,10 @@
 - [] Estudiar Drag and Drops
 - [x] Arreglar tarea Complete
 - [x] Añadir fecha a la tarea
-- [] Añadir .prevent en clicks
-- [] Crear presentación
+- [x] Añadir .prevent en clicks
+- [x] Crear presentación
 - [x] eye-icon pass
-- [] añadir botón + al final de tareas para añadir tarea nueva
+- [x] añadir botón + al final de tareas para añadir tarea nueva
 - [x] inputField revisar
-- [] menú burger reparar actualizar para que funcione
+- [x] menú burger reparar actualizar para que funcione
+- [x] Config alert
